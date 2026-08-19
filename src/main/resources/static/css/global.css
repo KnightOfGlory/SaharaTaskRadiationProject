@@ -373,6 +373,12 @@ img {
   letter-spacing: 0;
   text-transform: none;
   font-weight: 600;
+  
+}
+
+.badge--complete {
+  background-color: hsl(245, 61%, 62%);
+  color: #efedfc;
 }
 
 .badge--now {

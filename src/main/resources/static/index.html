@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/dashboard.css">
 </head>
-<body>
+<body >
 
   <header class="app-header">
     <div class="app-header__brand">
@@ -111,100 +111,6 @@
           </div>
         </article>
 
-        <!-- Collapsed groups -->
-        <article class="task-group task-group--collapsed" data-group-id="backlog">
-          <div class="task-group__header">
-            <button type="button" class="task-group__toggle" aria-expanded="false" aria-controls="group-backlog-list">
-              <svg class="icon task-group__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
-              <h3>Product backlog &amp; Refined ideas</h3>
-              <span class="task-group__count">45 tasks</span>
-            </button>
-            <button type="button" class="icon-button-ghost" aria-label="More options for Product backlog &amp; Refined ideas">
-              <svg class="icon icon--sm" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="19" r="1.4"/></svg>
-            </button>
-          </div>
-          <div class="task-list" id="group-backlog-list" hidden>
-            <article class="task-card" data-task-id="task-201">
-              <label class="task-card__checkbox checkbox-field" aria-label="Mark 'Research virtualized list rendering for 1000+ tasks' complete">
-                <input type="checkbox" name="task-201-done">
-                <span class="checkbox-visual" aria-hidden="true"></span>
-              </label>
-              <span class="task-card__title">Research virtualized list rendering for 1000+ tasks</span>
-              <span class="badge badge--priority-medium">MEDIUM</span>
-            </article>
-            <article class="task-card" data-task-id="task-202">
-              <label class="task-card__checkbox checkbox-field" aria-label="Mark 'Draft onboarding flow for new workspaces' complete">
-                <input type="checkbox" name="task-202-done">
-                <span class="checkbox-visual" aria-hidden="true"></span>
-              </label>
-              <span class="task-card__title">Draft onboarding flow for new workspaces</span>
-              <span class="badge badge--priority-medium">MEDIUM</span>
-            </article>
-            <article class="task-card task-card--done" data-task-id="task-203">
-              <label class="task-card__checkbox checkbox-field" aria-label="Mark 'Evaluate GraphQL migration for task API' complete">
-                <input type="checkbox" name="task-203-done" checked>
-                <span class="checkbox-visual" aria-hidden="true"></span>
-              </label>
-              <span class="task-card__title">Evaluate GraphQL migration for task API</span>
-              <span class="badge badge--priority-low">LOW</span>
-            </article>
-            <article class="task-card" data-task-id="task-204">
-              <label class="task-card__checkbox checkbox-field" aria-label="Mark 'Explore recurring task templates' complete">
-                <input type="checkbox" name="task-204-done">
-                <span class="checkbox-visual" aria-hidden="true"></span>
-              </label>
-              <span class="task-card__title">Explore recurring task templates</span>
-              <span class="badge badge--priority-low">LOW</span>
-            </article>
-          </div>
-        </article>
-
-        <article class="task-group task-group--collapsed" data-group-id="design-assets">
-          <div class="task-group__header">
-            <button type="button" class="task-group__toggle" aria-expanded="false" aria-controls="group-design-assets-list">
-              <svg class="icon task-group__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
-              <h3>Design Assets &amp; Component Audit</h3>
-              <span class="task-group__count">8 tasks</span>
-            </button>
-            <button type="button" class="icon-button-ghost" aria-label="More options for Design Assets &amp; Component Audit">
-              <svg class="icon icon--sm" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="19" r="1.4"/></svg>
-            </button>
-          </div>
-          <div class="task-list" id="group-design-assets-list" hidden>
-            <article class="task-card" data-task-id="task-301">
-              <label class="task-card__checkbox checkbox-field" aria-label="Mark 'Audit badge color contrast against WCAG AA' complete">
-                <input type="checkbox" name="task-301-done">
-                <span class="checkbox-visual" aria-hidden="true"></span>
-              </label>
-              <span class="task-card__title">Audit badge color contrast against WCAG AA</span>
-              <span class="badge badge--priority-high">HIGH</span>
-            </article>
-            <article class="task-card task-card--done" data-task-id="task-302">
-              <label class="task-card__checkbox checkbox-field" aria-label="Mark 'Consolidate duplicate button variants in Figma' complete">
-                <input type="checkbox" name="task-302-done" checked>
-                <span class="checkbox-visual" aria-hidden="true"></span>
-              </label>
-              <span class="task-card__title">Consolidate duplicate button variants in Figma</span>
-              <span class="badge badge--priority-medium">MEDIUM</span>
-            </article>
-            <article class="task-card" data-task-id="task-303">
-              <label class="task-card__checkbox checkbox-field" aria-label="Mark 'Rebuild avatar component with fallback initials' complete">
-                <input type="checkbox" name="task-303-done">
-                <span class="checkbox-visual" aria-hidden="true"></span>
-              </label>
-              <span class="task-card__title">Rebuild avatar component with fallback initials</span>
-              <span class="badge badge--priority-medium">MEDIUM</span>
-            </article>
-            <article class="task-card" data-task-id="task-304">
-              <label class="task-card__checkbox checkbox-field" aria-label="Mark 'Document icon stroke-width standard' complete">
-                <input type="checkbox" name="task-304-done">
-                <span class="checkbox-visual" aria-hidden="true"></span>
-              </label>
-              <span class="task-card__title">Document icon stroke-width standard</span>
-              <span class="badge badge--priority-low">LOW</span>
-            </article>
-          </div>
-        </article>
       </section>
 
       <!-- ================= Collapsed Kanban View ================= -->
@@ -327,6 +233,7 @@
     </aside>
 
   </main>
+  
 
   <script src="js/dashboard.js"></script>
 </body>
