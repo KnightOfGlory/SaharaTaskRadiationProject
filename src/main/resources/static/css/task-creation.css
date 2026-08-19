@@ -1,0 +1,439 @@
+/* ==========================================================================
+   Acme Flow — Task Creation
+   ========================================================================== */
+
+.task-creation-page {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--space-2xl) var(--space-md);
+}
+
+.task-creation {
+  width: 100%;
+  max-width: 560px;
+}
+
+.task-form {
+  padding: var(--space-lg) var(--space-xl) var(--space-xl);
+}
+
+/* ----- Stepper ----- */
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stepper__step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.stepper__step:last-child {
+  margin-left: auto;
+  text-align: right;
+}
+
+.stepper__step:last-child .stepper__text {
+  align-items: flex-end;
+}
+
+.stepper__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.stepper__step--complete .stepper__icon {
+  background: var(--color-success-tint);
+  color: var(--color-success);
+}
+
+.stepper__step--complete .stepper__icon .icon {
+  width: 13px;
+  height: 13px;
+  stroke-width: 2.6;
+}
+
+.stepper__step--active .stepper__icon {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.stepper__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  min-width: 0;
+}
+
+.stepper__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.stepper__step--active .stepper__label {
+  color: var(--color-primary);
+}
+
+.stepper__title {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stepper__separator {
+  color: var(--color-muted);
+  display: flex;
+}
+
+/* ----- Rich textarea (description + formatting toolbar) ----- */
+
+.rich-textarea {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+  overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.rich-textarea:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+  background: var(--color-surface);
+}
+
+.rich-textarea .textarea-input {
+  border: none;
+  background: transparent;
+  border-radius: 0;
+}
+
+.rich-textarea .textarea-input:focus {
+  box-shadow: none;
+}
+
+.rich-textarea__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 8px;
+  border-top: 1px solid var(--color-border);
+}
+
+.format-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  transition: background var(--transition-fast);
+}
+
+.format-btn:hover {
+  background: var(--color-surface-sunken);
+}
+
+.checklist-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 6px;
+  padding: 6px 10px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  transition: background var(--transition-fast);
+}
+
+.checklist-toggle:hover {
+  background: var(--color-primary-tint);
+}
+
+/* ----- Checklist items (appears once "Checklist" is toggled on) ----- */
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.checklist[hidden] {
+  display: none;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.checklist-item .text-input {
+  padding: 8px var(--space-sm);
+  font-size: var(--font-size-sm);
+}
+
+.checklist-item__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-muted);
+  border-radius: var(--radius-sm);
+}
+
+.checklist-item__remove:hover {
+  background: var(--color-danger-tint);
+  color: var(--color-danger);
+}
+
+.checklist-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 6px 4px;
+  border: none;
+  background: transparent;
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.checklist-add:hover {
+  text-decoration: underline;
+}
+
+/* ----- Priority select ----- */
+
+.priority-select {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 11px var(--space-sm) 11px var(--space-md);
+  background: var(--color-primary-tint);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+.priority-select__value {
+  flex: 1;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.priority-select__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  transition: background var(--transition-fast);
+}
+
+.priority-select__btn:hover {
+  background: var(--color-surface-alt);
+}
+
+/* ----- Generic form row: checkbox on the left, controls/hint on the right ----- */
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+}
+
+.form-row + .form-row {
+  border-top: 1px solid var(--color-border);
+}
+
+.form-row .checkbox-field {
+  flex-shrink: 0;
+}
+
+.checkbox-field .icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-warning);
+}
+
+.datetime-controls {
+  display: flex;
+  gap: var(--space-xs);
+  margin-left: auto;
+}
+
+.picker-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px var(--space-sm);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  transition: background var(--transition-fast);
+}
+
+.picker-btn:hover {
+  background: var(--color-surface-sunken);
+}
+
+.picker-btn .icon {
+  color: var(--color-muted);
+}
+
+.field-hint {
+  margin-left: auto;
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+}
+
+/* ----- Assignee field ----- */
+
+.assignee-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 8px var(--space-sm);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.assignee-field:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+  background: var(--color-surface);
+}
+
+.assignee-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 4px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.assignee-chip__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-full);
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.assignee-chip__remove:hover {
+  background: var(--color-danger-tint);
+  color: var(--color-danger);
+}
+
+.assignee-field__input {
+  flex: 1;
+  min-width: 100px;
+  border: none;
+  background: transparent;
+  padding: 4px;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+.assignee-field__input:focus {
+  outline: none;
+}
+
+.assignee-field__input::placeholder {
+  color: var(--color-muted);
+}
+
+/* ----- Form actions ----- */
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.form-actions .btn--ghost .icon {
+  width: 15px;
+  height: 15px;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .task-form {
+    padding: var(--space-md) var(--space-md) var(--space-lg);
+  }
+
+  .form-row {
+    flex-wrap: wrap;
+  }
+
+  .datetime-controls {
+    margin-left: 26px;
+    width: 100%;
+  }
+
+  .field-hint {
+    margin-left: 26px;
+  }
+}

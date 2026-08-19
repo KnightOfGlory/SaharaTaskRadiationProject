@@ -1,0 +1,596 @@
+/* ==========================================================================
+   Acme Flow — Global Design System
+   Design tokens, resets, base typography, and shared component styles
+   used across every page of the application.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ----- Color: neutrals & surfaces ----- */
+  --color-background: #F4F5FA;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F6F7FB;
+  --color-surface-sunken: #F0F1F7;
+  --color-border: #E9EAF2;
+  --color-border-strong: #DCDEEA;
+
+  /* ----- Color: text ----- */
+  --color-text: #1B1E2B;
+  --color-text-secondary: #6C7086;
+  --color-muted: #9698AB;
+  --color-on-primary: #FFFFFF;
+
+  /* ----- Color: brand / primary ----- */
+  --color-primary: #6357E5;
+  --color-primary-hover: #564AD1;
+  --color-primary-active: #4A3FBD;
+  --color-primary-tint: #EFEDFC;
+  --color-primary-tint-strong: #E3E0FA;
+
+  /* ----- Color: semantic status ----- */
+  --color-danger: #E14C63;
+  --color-danger-tint: #FCE9EC;
+  --color-warning: #EC8D3C;
+  --color-warning-tint: #FDEFE2;
+  --color-info: #3F8CE0;
+  --color-info-tint: #E8F1FC;
+  --color-success: #1FA971;
+  --color-success-tint: #E5F7EE;
+
+  /* ----- Typography ----- */
+  --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-size-xs: 0.6875rem;   /* 11px */
+  --font-size-sm: 0.75rem;     /* 12px */
+  --font-size-base: 0.875rem;  /* 14px */
+  --font-size-md: 0.9375rem;   /* 15px */
+  --font-size-lg: 1.0625rem;   /* 17px */
+  --font-size-xl: 1.25rem;     /* 20px */
+  --letter-spacing-label: 0.05em;
+
+  /* ----- Radius ----- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 999px;
+
+  /* ----- Shadow ----- */
+  --shadow-sm: 0 1px 2px rgba(20, 21, 46, 0.04);
+  --shadow-card: 0 1px 2px rgba(20, 21, 46, 0.04), 0 8px 24px rgba(20, 21, 46, 0.05);
+  --shadow-raised: 0 4px 14px rgba(20, 21, 46, 0.09);
+  --shadow-focus: 0 0 0 3px rgba(99, 87, 229, 0.28);
+
+  /* ----- Spacing scale ----- */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 28px;
+  --space-2xl: 36px;
+
+  /* ----- Motion ----- */
+  --transition-fast: 120ms ease;
+  --transition-base: 180ms ease;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Visible focus states everywhere, mouse users get a quieter ring */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   Layout primitives
+   ========================================================================== */
+
+.icon {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon--sm { width: 13px; height: 13px; }
+.icon--lg { width: 20px; height: 20px; }
+
+/* ==========================================================================
+   Card — the base surface used for every panel in the app
+   ========================================================================== */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card__header h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.card__header .icon {
+  color: var(--color-text-secondary);
+}
+
+.card__meta {
+  margin-left: auto;
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.card__meta--accent {
+  color: var(--color-primary);
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-label);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn--primary:active {
+  background: var(--color-primary-active);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-color: transparent;
+}
+
+.btn--ghost:hover {
+  background: var(--color-surface-sunken);
+  color: var(--color-text);
+}
+
+.btn--secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+.btn--secondary:hover {
+  background: var(--color-surface-alt);
+}
+
+/* Small icon-only circular buttons, e.g. header notification triggers */
+.icon-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--color-surface-sunken);
+  color: var(--color-text-secondary);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.icon-button:hover {
+  transform: translateY(-1px);
+}
+
+.icon-button--danger { background: var(--color-danger-tint); color: var(--color-danger); }
+.icon-button--warning { background: var(--color-warning-tint); color: var(--color-warning); }
+.icon-button--info { background: var(--color-info-tint); color: var(--color-info); }
+
+.icon-button__count {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-surface);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-on-primary);
+}
+
+.icon-button--danger .icon-button__count { background: var(--color-danger); }
+.icon-button--warning .icon-button__count { background: var(--color-warning); }
+.icon-button--info .icon-button__count { background: var(--color-info); }
+
+/* Tiny ghost icon buttons used inline, e.g. "..." menu triggers */
+.icon-button-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  color: var(--color-muted);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.icon-button-ghost:hover {
+  background: var(--color-surface-sunken);
+  color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   Badges & status pills
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-label);
+  white-space: nowrap;
+}
+
+.badge--today {
+  background: var(--color-primary-tint-strong);
+  color: var(--color-primary);
+}
+
+.badge--progress {
+  background: var(--color-primary-tint);
+  color: var(--color-primary);
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 600;
+}
+
+.badge--now {
+  background: var(--color-danger);
+  color: var(--color-on-primary);
+  padding: 2px 7px;
+}
+
+.badge--priority-high {
+  background: var(--color-danger-tint);
+  color: var(--color-danger);
+}
+
+.badge--priority-medium {
+  background: var(--color-warning-tint);
+  color: var(--color-warning);
+}
+
+.badge--priority-low {
+  background: var(--color-success-tint);
+  color: var(--color-success);
+}
+
+/* ==========================================================================
+   Checkbox — custom visual, real input kept for accessibility
+   ========================================================================== */
+
+.checkbox-field {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-field input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.checkbox-visual {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1.5px solid var(--color-border-strong);
+  background: var(--color-surface);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.checkbox-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3.5 8.5 6.5 11.5 12.5 4.5'/%3E%3C/svg%3E") center / 11px no-repeat;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.checkbox-field input[type="checkbox"]:checked + .checkbox-visual {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.checkbox-field input[type="checkbox"]:checked + .checkbox-visual::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.checkbox-field input[type="checkbox"]:focus-visible + .checkbox-visual {
+  box-shadow: var(--shadow-focus);
+}
+
+/* ==========================================================================
+   Avatars
+   ========================================================================== */
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  overflow: hidden;
+}
+
+.avatar--xs {
+  width: 22px;
+  height: 22px;
+  font-size: 9px;
+}
+
+/* ==========================================================================
+   Form controls — shared by any page with inputs
+   ========================================================================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-group + .form-group {
+  margin-top: var(--space-lg);
+}
+
+.form-group > label,
+.form-label {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.text-input,
+.textarea-input {
+  width: 100%;
+  padding: 11px var(--space-sm);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.text-input::placeholder,
+.textarea-input::placeholder {
+  color: var(--color-muted);
+}
+
+.text-input:focus,
+.textarea-input:focus {
+  outline: none;
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+.textarea-input {
+  resize: vertical;
+  min-height: 72px;
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   Dropdown trigger — small text + chevron control (e.g. "Group by Priority")
+   ========================================================================== */
+
+.dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.dropdown-trigger:hover {
+  background: var(--color-surface-sunken);
+  border-color: var(--color-border-strong);
+}
+
+.dropdown-trigger .icon {
+  color: var(--color-muted);
+}
+
+/* ==========================================================================
+   Status dots — small colored bullet + count, used in Kanban stat rows
+   ========================================================================== */
+
+.stat-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.stat-dot::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+}
+
+.stat-dot--high { color: var(--color-danger); }
+.stat-dot--medium { color: var(--color-warning); }
+.stat-dot--low { color: var(--color-success); }
+
+.stat-dot span {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Utility
+   ========================================================================== */
+
+.text-muted { color: var(--color-muted); }
