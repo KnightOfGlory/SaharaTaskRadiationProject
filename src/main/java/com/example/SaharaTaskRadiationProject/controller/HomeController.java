@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    @Value("${server.port}")
-    private String port;
+    /// testing
+//    @Value("${server.port}")
+//    private String port;
 
     @RequestMapping("/")
     public String index(){
@@ -18,7 +19,7 @@ public class HomeController {
     }
 
     private String getViewName(){
-        System.out.println("Server port: " + port);
+//        System.out.println("Server port: " + port);//testing
         return "index.html";
     }
 

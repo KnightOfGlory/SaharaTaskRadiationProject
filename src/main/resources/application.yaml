@@ -1,5 +1,13 @@
 spring:
   application:
     name: SaharaTaskRadiationProject
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taskradiation
+    username: postgres
+    password: ${DB_PASSWORD}
+
+
 server:
   port: 8080
+

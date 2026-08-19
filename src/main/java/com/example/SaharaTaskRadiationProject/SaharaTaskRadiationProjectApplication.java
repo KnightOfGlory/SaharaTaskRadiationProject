@@ -8,6 +8,8 @@ public class SaharaTaskRadiationProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SaharaTaskRadiationProjectApplication.class, args);
+//        System.out.println(System.getenv("DB_PASSWORD"));
+
 	}
 
 }
