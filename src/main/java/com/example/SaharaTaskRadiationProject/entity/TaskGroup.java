@@ -1,9 +1,11 @@
 package com.example.SaharaTaskRadiationProject.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "task_groups")
 public class TaskGroup {

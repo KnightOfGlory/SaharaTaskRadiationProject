@@ -20,8 +20,9 @@ public class ApiController {
 
     @GetMapping("/task-groups")
     public List<TaskGroup> getTaskGroups() {
-
         return taskGroupRepository.findAll();
     }
+
+
 }
 

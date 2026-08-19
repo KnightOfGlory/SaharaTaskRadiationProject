@@ -1,0 +1,61 @@
+
+<section class="card task-groups" aria-labelledby="task-groups-heading">
+        <header class="card__header">
+          <h2 id="task-groups-heading">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h11M4 12h11M4 18h6"></path><path d="m16 17 2.5 2.5L22 15"></path></svg>
+            Active Task Groups
+          </h2>
+          <span class="card__meta">Updated 2m ago</span>
+        </header>
+
+        <!-- Expanded group -->
+        <article class="task-group task-group--expanded" data-group-id="$$$$">
+          <div class="task-group__header">
+            <button type="button" class="task-group__toggle" aria-expanded="true" aria-controls="group-$$$$-list">
+              <svg class="icon task-group__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg>
+              <h3>$$$$</h3>
+              <span class="badge badge--progress">$ of $ completed</span>
+            </button>
+            <button type="button" class="icon-button-ghost" aria-label="More options for $$$$">
+              <svg class="icon icon--sm" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.4"></circle><circle cx="12" cy="12" r="1.4"></circle><circle cx="12" cy="19" r="1.4"></circle></svg>
+            </button>
+          </div>
+
+          <div class="task-list" id="group-$$$$-list">
+            <article class="task-card" data-task-id="task-$1">
+              <label class="task-card__checkbox checkbox-field" aria-label="$$$$">
+                <input type="checkbox" name="task-$1-done">
+                <span class="checkbox-visual" aria-hidden="true"></span>
+              </label>
+              <span class="task-card__title">$$$$</span>
+              <span class="badge badge--priority-$$$$">$$$$</span>
+            </article>
+
+            <article class="task-card task-card--done" data-task-id="task-$2">
+              <label class="task-card__checkbox checkbox-field" aria-label="Mark 'Implement collapsed Kanban expand animation spec' complete">
+                <input type="checkbox" name="task-$2-done" checked="$$$$">
+                <span class="checkbox-visual" aria-hidden="true"></span>
+              </label>
+              <span class="task-card__title">Implement collapsed Kanban expand animation spec</span>
+              <span class="badge badge--priority-$$$$">$$$$</span>
+            </article>
+
+            <article class="task-card" data-task-id="task-$3">
+              <label class="task-card__checkbox checkbox-field" aria-label="$$$$">
+                <input type="checkbox" name="task-$3-done">
+                <span class="checkbox-visual" aria-hidden="true"></span>
+              </label>
+              <span class="task-card__title">$$$$</span>
+              <span class="badge badge--priority-$$$$">$$$$</span>
+            </article>
+
+            <article class="task-card task-card--done" data-task-id="task-$4">
+              <label class="task-card__checkbox checkbox-field" aria-label="Mark '$$$$' complete">
+                <input type="checkbox" name="task-$4-done" checked="$$$$">
+                <span class="checkbox-visual" aria-hidden="true"></span>
+              </label>
+              <span class="task-card__title">$$$$</span>
+              <span class="badge badge--priority-low">LOW</span>
+            </article>
+          </div>
+        </article>
