@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   initTaskGroups();
   initTaskCheckboxes();
+  initTaskDragAndDrop();
 });
 
 /**
@@ -214,6 +215,30 @@ function initTaskCheckboxes() {
         checkbox.checked = !checkbox.checked;
 
       }
+    });
+  });
+}
+
+
+/**
+ * dragging cards from active list
+ */
+function initTaskDragAndDrop() {
+  const taskCards = document.querySelectorAll('.task-card');
+
+  taskCards.forEach((taskCard) => {
+    taskCard.draggable = true;
+
+    taskCard.addEventListener('dragstart', () => {
+      window.__draggedTaskId = taskCard.dataset.taskId;
+
+      taskCard.classList.add('task-card--dragging');
+    });
+
+    taskCard.addEventListener('dragend', () => {
+      taskCard.classList.remove('task-card--dragging');
+
+      window.__draggedTaskId = null;
     });
   });
 }
